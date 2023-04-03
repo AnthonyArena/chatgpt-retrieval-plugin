@@ -65,6 +65,7 @@ async def upsert(
     request: UpsertRequest = Body(...),
 ):
     try:
+        print(f"ANTHONY: {request.documents}")
         ids = await datastore.upsert(request.documents)
         return UpsertResponse(ids=ids)
     except Exception as e:

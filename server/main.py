@@ -1,5 +1,6 @@
 import os
 import uvicorn
+import traceback
 from fastapi import FastAPI, File, HTTPException, Depends, Body, UploadFile
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.staticfiles import StaticFiles
@@ -69,8 +70,9 @@ async def upsert(
         ids = await datastore.upsert(request.documents)
         return UpsertResponse(ids=ids)
     except Exception as e:
+        tb = traceback.format_exc()
         print("Error:", e)
-        raise HTTPException(status_code=500, detail=f"ANTHONY: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"ANTHONY: {tb}")
 
 
 @app.post(

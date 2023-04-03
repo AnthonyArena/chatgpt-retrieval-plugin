@@ -69,7 +69,7 @@ async def upsert(
         return UpsertResponse(ids=ids)
     except Exception as e:
         print("Error:", e)
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"ANTHONY: {str(e)}")
 
 
 @app.post(

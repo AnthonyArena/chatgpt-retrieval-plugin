@@ -66,13 +66,12 @@ async def upsert(
     request: UpsertRequest = Body(...),
 ):
     try:
-        print(f"ANTHONY: {request.documents}")
         ids = await datastore.upsert(request.documents)
         return UpsertResponse(ids=ids)
     except Exception as e:
         tb = traceback.format_exc()
         print("Error:", e)
-        raise HTTPException(status_code=500, detail=f"ANTHONY: {tb}")
+        raise HTTPException(status_code=500, detail="Internal Service Error")
 
 
 @app.post(

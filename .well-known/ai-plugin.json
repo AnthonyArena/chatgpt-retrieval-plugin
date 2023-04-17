@@ -1,8 +1,8 @@
 {
   "schema_version": "v1",
-  "name_for_model": "food_recommender_db",
-  "name_for_human": "Food Recommender",
-  "description_for_model": "Plugin for searching through JustBooked's restaurant dataset in order to recommend restaurants. Use it whenever a user asks something that might be found in the JustBooked restaurant dataset.",
+  "name_for_model": "JustBooked",
+  "name_for_human": "JustBooked",
+  "description_for_model": "Plugin for recommending a restaurant through JustBooked. Use it whenever a user asks for a restaurant recommendation.",
   "description_for_human": "Up to date information on restaurants near you!",
   "auth": {
     "type": "user_http",

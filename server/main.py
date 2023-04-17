@@ -33,9 +33,9 @@ app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
 # Create a sub-application, in order to access just the query endpoint in an OpenAPI schema, found at http://0.0.0.0:8000/sub/openapi.json when the app is running locally
 sub_app = FastAPI(
     title="Retrieval Plugin API",
-    description="A retrieval API for querying and filtering documents based on natural language queries and metadata",
+    description="Plugin for searching through JustBooked's restaurant dataset in order to recommend restaurants. Use it whenever a user asks something that might be found in the JustBooked restaurant dataset.",
     version="1.0.0",
-    servers=[{"url": "https://your-app-url.com"}],
+    servers=[{"url": "https://stingray-app-3hfe7.ondigitalocean.app/"}],
     dependencies=[Depends(validate_token)],
 )
 app.mount("/sub", sub_app)
@@ -95,7 +95,7 @@ async def query_main(
     "/query",
     response_model=QueryResponse,
     # NOTE: We are describing the shape of the API endpoint input due to a current limitation in parsing arrays of objects from OpenAPI schemas. This will not be necessary in the future.
-    description="Accepts search query objects array each with query and optional filter. Break down complex questions into sub-questions. Refine results by criteria, e.g. time / source, don't do this often. Split queries if ResponseTooLargeError occurs.",
+    description="Plugin for searching through JustBooked's restaurant dataset in order to recommend restaurants. Use it whenever a user asks something that might be found in the JustBooked restaurant dataset. Split queries if ResponseTooLargeError occurs.",
 )
 async def query(
     request: QueryRequest = Body(...),

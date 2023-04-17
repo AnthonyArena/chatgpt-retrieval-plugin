@@ -9,7 +9,7 @@ paths:
   /query:
     post:
       summary: Query
-      description: Accepts search query objects array each with query and optional filter. Break down complex questions into sub-questions. Refine results by criteria, e.g. time / source, don't do this often. Split queries if ResponseTooLargeError occurs.
+      description: Plugin for searching through JustBooked's restaurant dataset in order to recommend restaurants. Use it whenever a user asks something that might be found in the JustBooked restaurant dataset.
       operationId: query_query_post
       requestBody:
         content:

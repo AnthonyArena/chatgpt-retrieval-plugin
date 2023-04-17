@@ -1,10 +1,10 @@
 openapi: 3.0.2
 info:
-  title: Retrieval Plugin API
-  description: A retrieval API for querying and filtering documents based on natural language queries and metadata
+  title: Food Recommender API
+  description: A retrieval API for querying JustBooked's restaurant dataset in order to recommend restaurants.
   version: 1.0.0
   servers:
-    - url: https://your-app-url.com
+    - url: https://stingray-app-3hfe7.ondigitalocean.app/
 paths:
   /query:
     post:
